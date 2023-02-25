@@ -5,7 +5,7 @@ on:
   # a pull request.
   push:
     branches:
-      - master
+      - main
   pull_request:
     types:
       - opened
@@ -78,6 +78,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   zap_scan:
     runs-on: ubuntu-latest
+    permissions: write-all
     needs: security
     name: Run DAST scan on the web application
     steps:
